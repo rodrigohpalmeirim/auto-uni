@@ -51,9 +51,9 @@ if events[0].decoded("dtstart") > now:
 elif len(events) >= 2:
     if not events[1].decoded("dtstart")-events[0].decoded("dtend"):
         print(pretty_print_current_class(
-            events[0]) + events[1].decoded("summary").decode() + " afterwards.")
+            events[0]) + " " + events[1].decoded("summary").decode() + " afterwards.")
     else:
-        print(pretty_print_current_class(events[0]) + events[1].decoded("summary").decode() + " after a " +
+        print(pretty_print_current_class(events[0]) + " " + events[1].decoded("summary").decode() + " after a " +
               pretty_print_time_until(events[1].decoded("dtstart") - events[0].decoded("dtend") + now) + " break.")
 else:
     print(pretty_print_current_class(events[0]))
